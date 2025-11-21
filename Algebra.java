@@ -26,42 +26,102 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		for(int i = 0; i < x2; i++) {
+			x1++;
+		}
+		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		for(int i = 0; i < x2; i++) {
+			x1--;
+		}
+		return x1;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int sum = 0;
+			for(int i = 0; i < x2; i++) {
+				for(int u = 0; u < x1; u++){
+					sum++;
+				}
+			}
+		return sum;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
-		return 0;
+		int result = 1;
+		for ( int i = 0; i <= (n-1); i ++){
+			result = times(x,result);
+			}
+		return result;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int res = 0;
+		int a = x1;
+		while (a > 0){
+			res++;
+			for (int u = 0; u < x2; u++){
+				a--;
+			}
+		}
+		if( a < 0){
+			res--;
+			return res;
+		}else{
+			return res;
+		}
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
-	}	
+		int res = 0;
+		int a = x1;
+		while (a > 0){
+			res++;
+			for (int u = 0; u < x2; u++){
+				a--;
+			}
+		}
+		if( a < 0){
+			int n = plus(a, x2);
+			return n;
+		}else{
+			return 0;
+		}
+	}
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
+		int L = 1, H = x;
+		int g = div(plus(L, H), 2);
+		int stepCounter = 0;
+		while (times(g,g) != x) {
+			if (times(g,g) < x){
+				L = g;
+				stepCounter++;
+			}else{
+				H = g;
+				stepCounter++;
+			}
+			g = div(plus(L, H), 2);
+			
+			if(stepCounter > 1000){
+				break;
+			}
 		// Replace the following statement with your code
-		return 0;
+		//g = minus(g, div(minus(times(g, g), x), times(2, g)));
 	}	  	  
+return g;
+}
 }
